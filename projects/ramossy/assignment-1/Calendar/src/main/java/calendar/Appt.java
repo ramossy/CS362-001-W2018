@@ -121,7 +121,7 @@ public class Appt implements  Comparable<Appt>{
             	if(startDay<1 || startDay>NumDaysInMonth)
             		this.valid=false;
             	else
-                	if(startMonth<1 || startMonth>12) //MAKE A BUG HERE --> CHANGE 12 to 13, wrong number of months!
+                	if(startMonth<1) //Bug 1: originally was "startMonth<1 || startMonth>12", removed the upper bounds to allow startMonths greater than 12, which doesn't make sense."
                 		this.valid=false;
                 	else
                 		this.valid=true;
@@ -162,7 +162,7 @@ public class Appt implements  Comparable<Appt>{
     /** Sets title */
     public void setTitle(String title) {
         if (title == null) 
-            this.title = "";
+            this.title = title; //bug 5: modified this line from "this.title = """ to "this.title = title".
         else
             this.title = title;
     }

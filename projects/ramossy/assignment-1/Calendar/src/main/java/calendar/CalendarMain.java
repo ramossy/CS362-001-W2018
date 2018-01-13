@@ -42,7 +42,7 @@ public class CalendarMain {
 		 int startDay=thisDay+1;  	
 		 int startMonth=thisMonth; 	
 		 int startYear=thisYear; 	
-		 String title="Birthday Party";
+		 String title="Birthday Partyyy";
 		 String description="This is my birthday party.";
 		 //Construct a new Appointment object with the initial data	 
          Appt appt = new Appt(startHour,
