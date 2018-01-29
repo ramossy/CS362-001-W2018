@@ -55,24 +55,21 @@ public class ApptTest {
 		 assertFalse(appt.getValid());
 		 appt.setStartHour(3);
 		 
+		
+		 appt.setStartMinute(-3);
+		 assertFalse(appt.getValid());
+		 
+		 assertNull(appt.toString());
+		 
+		 
+		 appt.setStartMinute(10);
+		 
 		 appt.setStartDay(50);
 		 assertFalse(appt.getValid());
 		 appt.setStartDay(10);
-		 appt.setStartMinute(-3);
-		 assertFalse(appt.getValid());
-		 appt.setStartMinute(10);
-		 appt.setStartMonth(10);
-		
+		 
 		 appt.setStartYear(-1);
 		 assertTrue(appt.getValid()); 
-		// appt.setStartHour(10));
-		 //assertNotNull(appt.setStartMinute(20));
-		 //assertNotNull(appt.setStartDay(20));
-		 //assertNotNull(appt.setStartMonth(1));
-		 //assertNotNull(appt.setStartYear(2019));
-		 
-		 String nullString = "";
-		 appt.setTitle(nullString);
 		 
 		 appt.setRecurrence(recurringDays, 1, 0, 10);
 		 assertNotNull(appt.getRecurNumber());
@@ -80,7 +77,15 @@ public class ApptTest {
 		 assertNotNull(appt.isRecurring());
 		 assertNotNull(appt.getRecurIncrement());
 		 
+		 String nullString = null;
+		 appt.setTitle(nullString);
+		 appt.setDescription(nullString);
+		 
+		 int badIntArray[] = null;
+		 appt.setRecurrence(badIntArray, 1, 0, 10);
 		// assertEquals("no", appt.getTitle());
+		 
+		 
 	 }
 
 	 @Test

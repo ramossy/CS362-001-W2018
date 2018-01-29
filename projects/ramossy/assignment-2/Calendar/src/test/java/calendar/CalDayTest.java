@@ -23,10 +23,13 @@ public class CalDayTest {
 		 	CalDay calendarDay = new CalDay(cal);
 		 	Appt appt = new Appt(20,10 ,1 ,11 ,2018 , "MECOP Interview", "Let's gooooooo");
 		 	calendarDay.addAppt(appt);
-		 	
-		 	
+			Appt appt2 = new Appt(20,9 ,1 ,11 ,2018 , "MECOP Interview", "Let's gooooooo");
+			calendarDay.addAppt(appt2);
+			Appt appt3 = new Appt(20,11 ,1 ,11 ,2018 , "MECOP Interview", "Let's gooooooo");
+			calendarDay.addAppt(appt3);
+			
 		 	//assertions 
-		 	assertEquals(1, calendarDay.getSizeAppts());
+		 	assertEquals(3, calendarDay.getSizeAppts());
 		 	assertTrue(calendarDay.isValid());
 		 	assertEquals(day, calendarDay.getDay());
 		 	assertEquals(month, calendarDay.getMonth());
@@ -35,11 +38,14 @@ public class CalDayTest {
 		 	assertNotNull(calendarDay.toString());
 		 	assertNotNull(calendarDay.getAppts());
 		 	assertNotNull(calendarDay.iterator());
+		 	
+		 	
 	 }
 	 @Test
 	  public void test02()  throws Throwable  {
 		 	CalDay calendarDayInvalid = new CalDay();
 		 	assertEquals(false, calendarDayInvalid.isValid());
+		 	assertNull(calendarDayInvalid.iterator());
 	 }
 //add more unit tests as you needed	
 }
