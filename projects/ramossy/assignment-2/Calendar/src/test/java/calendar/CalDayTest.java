@@ -15,11 +15,31 @@ public class CalDayTest {
 
 	 @Test
 	  public void test01()  throws Throwable  {
-
+			GregorianCalendar cal = new GregorianCalendar();
+		 	boolean valid = true;
+		 	int day = cal.get(cal.DAY_OF_MONTH); 
+		 	int month = cal.get(cal.MONTH);
+		 	int year = cal.get(cal.YEAR);
+		 	CalDay calendarDay = new CalDay(cal);
+		 	Appt appt = new Appt(20,10 ,1 ,11 ,2018 , "MECOP Interview", "Let's gooooooo");
+		 	calendarDay.addAppt(appt);
+		 	
+		 	
+		 	//assertions 
+		 	assertEquals(1, calendarDay.getSizeAppts());
+		 	assertTrue(calendarDay.isValid());
+		 	assertEquals(day, calendarDay.getDay());
+		 	assertEquals(month, calendarDay.getMonth());
+		 	assertEquals(year, calendarDay.getYear());
+		 	
+		 	assertNotNull(calendarDay.toString());
+		 	assertNotNull(calendarDay.getAppts());
+		 	assertNotNull(calendarDay.iterator());
 	 }
 	 @Test
 	  public void test02()  throws Throwable  {
-		 
+		 	CalDay calendarDayInvalid = new CalDay();
+		 	assertEquals(false, calendarDayInvalid.isValid());
 	 }
 //add more unit tests as you needed	
 }
