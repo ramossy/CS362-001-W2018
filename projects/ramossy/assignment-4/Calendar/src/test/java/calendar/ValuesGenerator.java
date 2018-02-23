@@ -83,7 +83,7 @@ public class ValuesGenerator {
 	    for (int i = 0; i < n; i++)
 	    {
 	    	tempArray[i]=getRandomIntBetween(random,0,10);
-	    	if(tempArray[i] == 10){
+	    	if(tempArray[i] > 7){
 	    		return null;
 	    	}
 	    }
