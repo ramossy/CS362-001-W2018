@@ -40,7 +40,7 @@ public class CalDay {
 	* Constructs an invalid CalDay object
 	*/
 	public CalDay() {
-		valid = false;
+		valid = true; //Bug 3: Modified this line from "valid = false" to "valid = true".
 	}
 	
 	/**
@@ -91,7 +91,7 @@ public class CalDay {
 	 * @return True if this is an initalized CalDay object
 	 */
 	public boolean isValid() {
-	    return valid;
+	    return valid; 
 	}
 	
 	/**
