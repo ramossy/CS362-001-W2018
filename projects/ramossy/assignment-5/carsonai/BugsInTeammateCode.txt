@@ -1,0 +1,55 @@
+Bug Report - Assignment 5
+Symon Ramos 
+3/6/2018
+
+---------------------------------------------------------------------------------
+Bug #1: Invalid Bounds
+---------------------------------------------------------------------------------
+The first bug that I found was in the isValid() function in the Appt class. 
+It's a subtle bug that is easily missed, especially because most of the time, 
+proper behavior occurs. It involves a particular if statement that checks for the hour 
+by evaluating the startHour variable within the Appt class. This is the code below: 
+
+
+if(startHour<0 || startHour>24)
+      		this.valid=false;
+
+
+The bug appears when startHour = 24, and only when startHour = 24. It sets the 
+class to be valid when it shouldn't because the proper bounds for the hour for 
+Appointments should be from 0 to 23 inclusive. The code should instead be: 
+
+
+if(startHour<0 || startHour>23)
+		this.valid = false; 
+
+
+This bug was caught using random testing and is a result of human error. Unit testing 
+is also capable of identifying this bug if the outside bounds were checked, which means 
+that unit testing would need to be thorough. However, there is also the chance that 
+random testing won't be able to discover this bug if there are no iterations of 
+test cases in which the startHour = 24. 
+
+---------------------------------------------------------------------------------
+Bug #2: Invalid Bounds Exception 
+---------------------------------------------------------------------------------
+This second bug was found within the TimeTable class inside of the getApptRange() 
+function. This bug was far more difficult to find and took intensive searching. 
+Ultimately, I was able to find it by testing a boundary case: what would happen 
+if the second date passed was before the first date pass? Under normal circumstances, 
+an error should occur because that would be an illegal operation and would negatively 
+affect the code. However, there is no check for this within the given code. Therefore, 
+the following needs to be added in order to ensure that the code doesn't break given 
+this specific case: 
+
+
+ if (!firstDay.before(lastDay)) {
+ 	        	throw new DateOutOfRangeException ("Second date specified is not  before the first date specified.");
+ 	        }
+
+
+By doing so, the code remedies the big. One additional thing to note is that both 
+random testing and unit testing are viable methods to discovering this bug. So long as 
+you are thorough in your testing of the boundary cases and configure your random test variables 
+to enter this specific partition (which should theoretically be common), then this 
+bug should be discovered. 	
